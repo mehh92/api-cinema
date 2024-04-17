@@ -1,6 +1,5 @@
 import { Router, Request, Response } from "express";
-import { auteursModel } from "../models/Auteur";
-import Auteur from "../models/Auteur";
+import IFilm, { filmModel } from "../models/Film";
 
 
 const router = Router();
@@ -8,8 +7,8 @@ const router = Router();
 
 router.get('/', async (req: Request, res: Response) => {
   try {
-    const auteurs = await auteursModel.find();
-    res.status(200).json(auteurs);
+    const films = await filmModel.find();
+    res.status(200).json(films);
   } catch (error: any) {
     res.status(500).json({ message: error.message });
   }
@@ -17,9 +16,9 @@ router.get('/', async (req: Request, res: Response) => {
 
 router.get('/:id', async (req: Request, res: Response) => {
   try {
-    const auteur = await auteursModel.findById(req.params.id);
-    if (!auteur) return res.status(404).send('Auteur non trouvé');
-    res.json(auteur);
+    const film = await filmModel.findById(req.params.id);
+    if (!film) return res.status(404).send('Film non trouvé');
+    res.json(film);
   } catch (error: any) {
     res.status(500).json({ message: error.message });
   }
@@ -27,10 +26,10 @@ router.get('/:id', async (req: Request, res: Response) => {
 
 router.post('/', async (req: Request, res: Response) => {
   try {
-    const auteur: Auteur = req.body;
-    const nouveauAuteur = new auteursModel(auteur);
-    await nouveauAuteur.save();
-    res.status(201).json(nouveauAuteur);
+    const film: IFilm = req.body;
+    const nouveauFilm = new filmModel(film);
+    await nouveauFilm.save();
+    res.status(201).json(nouveauFilm);
   } catch (error: any) {
     res.status(500).json({ message: error.message });
   }
@@ -38,10 +37,10 @@ router.post('/', async (req: Request, res: Response) => {
 
 router.delete('/:id', async (req: Request, res: Response) => {
   try {
-    const auteur = await auteursModel.findById(req.params.id);
-    if (!auteur) return res.status(404).send('Auteur non trouvé');
-    await auteursModel.findByIdAndDelete(req.params.id);
-    res.send('Auteur supprimé');
+    const film = await filmModel.findById(req.params.id);
+    if (!film) return res.status(404).send('Film non trouvé');
+    await filmModel.findByIdAndDelete(req.params.id);
+    res.send('Film supprimé');
   } catch (error: any) {
     res.status(500).json({ message: error.message });
   }
@@ -49,10 +48,10 @@ router.delete('/:id', async (req: Request, res: Response) => {
 
 router.put('/:id', async (req: Request, res: Response) => {
   try {
-    const auteur = await auteursModel.findById(req.params.id);
-    if (!auteur) return res.status(404).send('Auteur non trouvé');
-    await auteursModel.findByIdAndUpdate(req.params.id, req.body);
-    res.send('Auteur mis à jour');
+    const film = await filmModel.findById(req.params.id);
+    if (!film) return res.status(404).send('Film non trouvé');
+    await filmModel.findByIdAndUpdate(req.params.id, req.body);
+    res.send('Film mis à jour');
   }
   catch (error: any) {
     res.status(500).json({ message: error.message });
