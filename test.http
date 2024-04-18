@@ -38,7 +38,7 @@ content-type: application/json
 
 {
     "titre": "Dune 2",
-    "realeaseYear": "2024-04-17T12:00:00Z",
+    "realeaseYear": 2024,
     "genre": "Science Fiction",
     "directors": [
         {
