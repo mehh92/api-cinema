@@ -1,6 +1,5 @@
 import { Router, Request, Response } from "express";
 import IFilm, { filmModel } from "../models/Film";
-import IDirector, { directorModel } from "../models/Realisateur";
 
 
 const router = Router();
