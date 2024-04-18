@@ -1,5 +1,6 @@
 import { Router, Request, Response } from "express";
 import IFilm, { filmModel } from "../models/Film";
+import IDirector, { directorModel } from "../models/Realisateur";
 
 
 const router = Router();
@@ -34,6 +35,7 @@ router.post('/', async (req: Request, res: Response) => {
     res.status(500).json({ message: error.message });
   }
 });
+  
 
 router.delete('/:id', async (req: Request, res: Response) => {
   try {

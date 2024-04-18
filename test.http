@@ -7,25 +7,28 @@ GET http://localhost:3010/api/films
 GET http://localhost:3010/api/films/661fa713118c544e0af2d63d
 
 ###
-
 POST http://localhost:3010/api/films
 content-type: application/json
 
 {
-    "titre": "Dune 1",
-    "realeaseYear": "2024-04-17T12:00:00Z",
-    "genre": "Science Fiction",
-    "directors":
-
-        {
-            "nom": "Realisateur 1",
-            "dateNaissance": "2024-04-17T12:00:00Z",
-            "biography": "Lorem ipsum dolor sit amet, consectetur adipiscing elit"
-        }
+  "title": "Example Film",
+  "releaseYear": 2024,
+  "genre": "Action",
+  "directors": [
+    {
+      "name": "Director One",
+      "birthdate": "1978-05-15T00:00:00.000Z",
+      "biography": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    },
+    {
+      "name": "Director Two",
+      "birthdate": "1985-10-20T00:00:00.000Z",
+      "biography": "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    }
+  ]
 }
 
 ###
-
 DELETE http://localhost:3010/api/films/661f9d56ca969489782048d3
 
 
@@ -38,13 +41,11 @@ content-type: application/json
     "realeaseYear": "2024-04-17T12:00:00Z",
     "genre": "Science Fiction",
     "directors": [
-
         {
             "nom": "Realisateur 1",
-            "dateNaissance": "2024-04-17T12:00:00Z",
+            "birthdate": "2024-04-17T12:00:00Z",
             "biography": "Lorem ipsum dolor sit amet, consectetur adipiscing elit"
-        },
-
+        }
     ]
 }
 
@@ -63,7 +64,7 @@ content-type: application/json
 
 {
     "nom": "Realisateur 1",
-    "dateNaissance": "2024-04-17T12:00:00Z",
+    "birthdate": "2024-04-17T12:00:00Z",
     "biography": "Lorem ipsum dolor sit amet, consectetur adipiscing elit"
 }
 
@@ -78,7 +79,7 @@ content-type: application/json
 
 {
     "nom": "Realisateur 2",
-    "dateNaissance": "2024-04-17T12:00:00Z",
+    "birthdate": "2024-04-17T12:00:00Z",
     "biography": "Lorem ipsum dolor sit amet, consectetur adipiscing elit"
 }
 
@@ -96,28 +97,28 @@ POST http://localhost:3010/api/seances
 content-type: application/json
 
 {
-    "film": 
-    {
-        "titre": "Dune 1",
-        "realeaseYear": "2024-04-17T12:00:00Z",
-        "genre": "Science Fiction",
-        "directors": {
-            "director1": {
-                "nom": "Realisateur 1",
-                "dateNaissance": "2024-04-17T12:00:00Z",
-                "biography": "Lorem ipsum dolor sit amet, consectetur adipiscing elit"
-            },
-            "director2": {
-                "nom": "Realisateur 2",
-                "dateNaissance": "2024-04-17T12:00:00Z",
-                "biography": "Lorem ipsum dolor sit amet, consectetur adipiscing elit"
-            }
-        }
-    },
-    "date": "2024-04-17T12:00:00Z",
-    "time": "12:00",
-    "availableSeats": 100
+  "film": {
+    "title": "Dune 1",
+    "releaseYear": 2024,
+    "genre": "Science Fiction",
+    "directors": [
+      {
+        "nom": "Realisateur 1",
+        "birthdate": "2024-04-17T12:00:00Z",
+        "biography": "Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+      },
+      {
+        "nom": "Realisateur 2",
+        "birthdate": "2024-04-17T12:00:00Z",
+        "biography": "Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+      }
+    ]
+  },
+  "date": "2024-04-17T12:00:00Z",
+  "time": "12:00",
+  "availableSeats": 100
 }
+
 
 
 ###
@@ -130,25 +131,24 @@ PUT http://localhost:3010/api/seances/661f8d762357125add97ef6c
 content-type: application/json
 
 {
-    "film": 
-    {
-        "titre": "Dune 1",
-        "realeaseYear": "2024-04-17T12:00:00Z",
-        "genre": "Science Fiction",
-        "directors": {
-            "director1": {
-                "nom": "Realisateur 1",
-                "dateNaissance": "2024-04-17T12:00:00Z",
-                "biography": "Lorem ipsum dolor sit amet, consectetur adipiscing elit"
-            },
-            "director2": {
-                "nom": "Realisateur 2",
-                "dateNaissance": "2024-04-17T12:00:00Z",
-                "biography": "Lorem ipsum dolor sit amet, consectetur adipiscing elit"
-            }
-        }
-    },
-    "date": "2024-04-17T12:00:00Z",
-    "time": "12:00",
-    "availableSeats": 100
+  "film": {
+    "title": "Dune 1",
+    "releaseYear": 2024,
+    "genre": "Science Fiction",
+    "directors": [
+      {
+        "nom": "Realisateur 1",
+        "birthdate": "2024-04-17T12:00:00Z",
+        "biography": "Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+      },
+      {
+        "nom": "Realisateur 2",
+        "birthdate": "2024-04-17T12:00:00Z",
+        "biography": "Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+      }
+    ]
+  },
+  "date": "2024-04-17T12:00:00Z",
+  "time": "12:00",
+  "availableSeats": 100
 }
